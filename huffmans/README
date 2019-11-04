@@ -1,3 +1,47 @@
 Huffman's Compression tree and encoding
 
 This does NOT include decoding at this moment.
+
+Head – header file:
+In here is included the defined MAX_NODES. This will decide how many nodes head.c will wait for and spread work across.
+MAX is defined for message size placeholders.
+
+
+Head.c:   NOTE: Must be on Thing3
+
+Void Func(int*)
+Accepts an array of connected sockets to spread the workload across. Will tell the user which node has been sent what number range, 
+their returned values, and the total amount of primes calculated between all nodes.
+
+Int setupServerSocket(int)
+These were intended to follow the prototype designs you wanted. This simply creates the socket for which the head use to accept the node connections.
+
+Int* serverSocketAccept(int, int)
+Accepts a port number and a socket. This function will bind the socket to the port then proceed to listen for connection. 
+Based on MAX_NODES declaration in the header file, this function will wait for the amount of MAX_NODES to connect before continuing.
+Returns an array of connected sockets.
+
+Node.h:
+	MAX is defined to be a simple placeholder for size of messages to send over the socket.
+
+Node.c
+
+Void Func(int)
+Accepts the socket. Reads in minimum and maximum of range they are to calculate. Prints all prime numbers it finds, just for fun really, and to watch progress. 
+Sends the number of primes found back to the head.
+
+Void writeInt(int, int)
+	Accepts the count of primes and the socket. Sends information to the head.
+
+Int setUpClientSocket(int)
+	Accepts the port number. Creates and returns the socket.
+
+Void callServer(char*, int, int)
+	Accepts IP address, port number, and socket. Connects to the head.
+
+Makefile:
+	make – both head and node will be compiled and linked if needed
+	make head – creates the head executable
+	make node – creates the node executable
+	make clean – cleans all .o files and removes the executables (just in case of skewed thing clocks)
+
