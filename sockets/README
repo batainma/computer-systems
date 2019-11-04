@@ -1,6 +1,4 @@
-Huffman's Compression tree and encoding
-
-This does NOT include decoding at this moment.
+Socket communication assignment: multiple machines work together to find all prime numbers in a range
 
 Head – header file:
 In here is included the defined MAX_NODES. This will decide how many nodes head.c will wait for and spread work across.
