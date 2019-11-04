@@ -3,15 +3,21 @@ Linux Miniature Shell
 Jordan Coffland and Mohammed Bataineh
 
 Assignment strategy:
+
 Main():
 The main handles creating the terminal prompt and accepting input to send to parse(). Once parsed, it is immediately checked for an exit command and a change directory. The main also handles forking. isBackProcess handles deciding what fork option will be used.
+
 Parse()
 Accepts an input string. Tokenizes the string based on white space into a 2D array of chars. Returns the tokenized array of strings back to the main to handle.
+
 isBackProcess()
 Returns a Boolean. Checks for the ‘&’ flag at the end and returns true or false. This decides if the fork will wait for the child process and let it run in the background.
+
 inputR()
 Checks for input redirection. The ‘<’ token must be surrounded by spaces to work in this program.
+
 outputR()
 Checks for output redirection. The ‘>’ token must be surrounded by spaces to work in this program.
+
 freeTheMemory()
 A call to get rid of all allocated memory before exit is called and for the child’s return process. Can be used but doesn’t work as intended. We left it in to show our attempt at proper memory management – this is not being used at the moment.
